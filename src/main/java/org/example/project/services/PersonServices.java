@@ -2,6 +2,8 @@ package org.example.project.services;
 
 
 import org.example.project.model.Person;
+import org.example.project.repositories.PersonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,7 +15,10 @@ import java.util.logging.Logger;
 public class PersonServices {
 
     private final AtomicLong counter = new AtomicLong();
-    private Logger logger = Logger.getLogger(PersonServices.class.getName());
+    private final Logger logger = Logger.getLogger(PersonServices.class.getName());
+
+    @Autowired
+    PersonRepository repository;
 
     public List<Person> findAll() {
 
